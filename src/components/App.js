@@ -1,25 +1,28 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 import TodoCreate from './todo/TodoCreate';
 import TodoEdit from './todo/TodoEdit';
 import TodoDelete from './todo/TodoDelete';
 import TodoList from './todo/TodoList';
 import TodoShow from './todo/TodoShow';
 import Header from './Header';
+import history from '../history';
 
 const App = () => {
   return (
     <div className="ui container">
-      <BrowserRouter>
+      <Router history={history}>
         <div>
           <Header />
-          <Route path="/" exact component={TodoList} />
-          <Route path="/todo/new" exact component={TodoCreate} />
-          <Route path="/todo/edit" exact component={TodoEdit} />
-          <Route path="/todo/delete" exact component={TodoDelete} />
-          <Route path="/todo/show" exact component={TodoShow} />
+          <Switch>
+            <Route path="/" exact component={TodoList} />
+            <Route path="/todos/new" exact component={TodoCreate} />
+            <Route path="/todos/edit/:id" exact component={TodoEdit} />
+            <Route path="/todos/delete/:id" exact component={TodoDelete} />
+            <Route path="/todos/:id" exact component={TodoShow} />
+          </Switch>
         </div>
-      </BrowserRouter>
+      </Router>
     </div>
   );
 };

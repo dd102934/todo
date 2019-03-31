@@ -4,13 +4,13 @@ import GoogleAuth from './GoogleAuth';
 
 const Header = () => {
   return (
-    <div className="ui inverted blue secondary pointing menu">
+    <div className="ui inverted teal secondary pointing menu">
       <Link to="/" className="item">
-        ToDoApp
+        Todo
       </Link>
       <div className="right menu">
         <Link to="/" className="item">
-          All ToDo
+          All Todo List
         </Link>
         <GoogleAuth />
       </div>
